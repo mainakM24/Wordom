@@ -1,4 +1,4 @@
-package com.example.wordom.domain.models
+package com.example.wordom.data.models
 
 data class WordData(
     val word: String,

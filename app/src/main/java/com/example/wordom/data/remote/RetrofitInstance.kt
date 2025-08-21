@@ -7,7 +7,7 @@ import retrofit2.create
 object RetrofitInstance {
     fun getInstance() : Retrofit {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://api.wordnik.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
