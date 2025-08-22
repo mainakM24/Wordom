@@ -2,7 +2,6 @@ package com.example.wordom.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.wordom.data.models.WordData
 import com.example.wordom.domain.models.Word
 import com.example.wordom.domain.usecases.GetWordUseCase
 import kotlinx.coroutines.flow.MutableStateFlow

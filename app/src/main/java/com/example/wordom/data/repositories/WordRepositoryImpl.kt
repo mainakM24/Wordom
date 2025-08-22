@@ -1,7 +1,8 @@
 package com.example.wordom.data.repositories
 
+import android.content.Context
+import com.example.wordom.data.local.WordomDatabase
 import com.example.wordom.data.remote.RetrofitInstance
-import com.example.wordom.data.models.WordData
 import com.example.wordom.domain.models.Word
 import com.example.wordom.domain.repositories.WordRepository
 import java.time.LocalDate
@@ -26,5 +27,9 @@ class WordRepositoryImpl : WordRepository {
         } catch (e : Exception) {
             Result.failure(e)
         }
+    }
+
+    override suspend fun getFavouriteWords(): Result<List<Word>> {
+        TODO("Not yet implemented")
     }
 }

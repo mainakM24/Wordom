@@ -1,7 +1,7 @@
 package com.example.wordom.data.remote
 
 import com.example.wordom.BuildConfig
-import com.example.wordom.data.models.WordData
+import com.example.wordom.data.remote.models.WordData
 import retrofit2.http.GET
 import retrofit2.http.Query
 

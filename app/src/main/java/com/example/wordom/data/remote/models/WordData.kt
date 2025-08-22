@@ -1,4 +1,4 @@
-package com.example.wordom.data.models
+package com.example.wordom.data.remote.models
 
 data class WordData(
     val word: String,
