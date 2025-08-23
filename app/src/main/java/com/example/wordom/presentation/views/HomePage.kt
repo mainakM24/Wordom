@@ -30,10 +30,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.wordom.presentation.viewmodels.HomeViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomePage(modifier : Modifier) {
-    val viewModel : HomeViewModel = viewModel<HomeViewModel>()
+    val viewModel : HomeViewModel = koinViewModel<HomeViewModel>()
     val uiState = viewModel.uiState.collectAsState()
 
     if (uiState.value.isLoading) {

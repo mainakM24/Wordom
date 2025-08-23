@@ -18,6 +18,6 @@ interface WordDao {
     suspend fun deleteWord(word : WordEntity)
 
     @Query("SELECT * FROM favourites")
-    suspend fun getAllWord() : Flow<List<WordEntity>>
+    fun getAllWord() : Flow<List<WordEntity>>
 
 }

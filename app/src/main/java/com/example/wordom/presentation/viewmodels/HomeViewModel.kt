@@ -14,8 +14,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 
-class HomeViewModel : ViewModel(){
-    private val getWordUseCase : GetWordUseCase by lazy { GetWordUseCase() }
+class HomeViewModel(
+    private val getWordUseCase: GetWordUseCase
+) : ViewModel(){
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
 

@@ -8,8 +8,9 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class GetWordUseCase {
-    private val repository : WordRepository by lazy { WordRepositoryImpl() }
+class GetWordUseCase(
+    private val repository : WordRepository
+) {
 
     operator fun invoke() = flow {
         val response = repository.getWordData()
