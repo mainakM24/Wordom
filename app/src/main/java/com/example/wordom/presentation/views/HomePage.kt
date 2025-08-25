@@ -29,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.wordom.domain.models.Word
 import com.example.wordom.presentation.viewmodels.HomeViewModel
 import org.koin.androidx.compose.koinViewModel
 
@@ -49,7 +50,7 @@ fun HomePage(modifier : Modifier) {
         }
     }
 
-    uiState.value.data?.let { (name, partsOfSpeech, definition) ->
+    uiState.value.data?.let { (name, partsOfSpeech, definition, date) ->
         Column(
             modifier = modifier.padding(32.dp),
             verticalArrangement = Arrangement.Center,
@@ -76,7 +77,7 @@ fun HomePage(modifier : Modifier) {
             )
             Spacer(modifier = Modifier.height(20.dp))
 
-            Button(onClick = {}, Modifier.fillMaxWidth() ,shape = RoundedCornerShape(20)) {
+            Button(onClick = {viewModel.addWord(Word(name, partsOfSpeech, definition, date))}, Modifier.fillMaxWidth() ,shape = RoundedCornerShape(20)) {
                 Icon(Icons.Outlined.Favorite, contentDescription = "Add to Fav")
                 Spacer(Modifier.size(ButtonDefaults.IconSpacing))
                 Text("Add to Favourite", fontWeight = FontWeight.ExtraBold, fontSize = 24.sp)

@@ -15,3 +15,12 @@ fun WordEntity.toDomain() : Word {
 fun List<WordEntity>.toDomainList() : List<Word> {
     return this.map { it.toDomain() }
 }
+
+fun Word.toEntity() : WordEntity {
+    return WordEntity(
+        name = this.name,
+        partsOfSpeech = this.partsOfSpeech,
+        definition = this.definition,
+        date = this.date
+    )
+}

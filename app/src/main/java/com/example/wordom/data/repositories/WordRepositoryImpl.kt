@@ -3,6 +3,7 @@ package com.example.wordom.data.repositories
 import android.content.Context
 import com.example.wordom.data.local.WordomDatabase
 import com.example.wordom.data.mappers.toDomainList
+import com.example.wordom.data.mappers.toEntity
 import com.example.wordom.data.remote.ApiService
 import com.example.wordom.data.remote.RetrofitInstance
 import com.example.wordom.data.remote.models.WordData
@@ -40,5 +41,9 @@ class WordRepositoryImpl(
     override suspend fun getFavouriteWords(): Flow<List<Word>> {
         return wordomDatabase.getWordDao().getAllWord()
             .map { entities -> entities.toDomainList() }
+    }
+
+    override suspend fun insertFavouriteWord(word: Word) {
+        wordomDatabase.getWordDao().insertWord(word.toEntity())
     }
 }

@@ -3,6 +3,7 @@ package com.example.wordom.presentation.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.wordom.domain.models.Word
+import com.example.wordom.domain.usecases.AddFavWordUseCase
 import com.example.wordom.domain.usecases.GetWordUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,7 +16,8 @@ import kotlinx.coroutines.launch
 
 
 class HomeViewModel(
-    private val getWordUseCase: GetWordUseCase
+    private val getWordUseCase: GetWordUseCase,
+    private val addFavWordUseCase: AddFavWordUseCase
 ) : ViewModel(){
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
@@ -38,6 +40,12 @@ class HomeViewModel(
             }.catch { error ->
                 _uiState.update { UiState(error = error.message.toString()) }
             }.launchIn(viewModelScope)
+    }
+
+    fun addWord(word: Word) {
+        viewModelScope.launch {
+            addFavWordUseCase.invoke(word)
+        }
     }
 }
 
