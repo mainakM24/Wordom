@@ -74,7 +74,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
     ) { innerPadding ->
         when (selectedItem) {
             "Home" -> HomePage(modifier = Modifier.padding(innerPadding).fillMaxSize())
-            "Favourite" -> FavouritePage(modifier = Modifier.padding(innerPadding))
+            "Favourite" -> FavouritePage(modifier = Modifier.padding(innerPadding).fillMaxSize())
             "Setting" -> SettingPage(modifier = Modifier.padding(innerPadding))
         }
     }

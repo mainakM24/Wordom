@@ -13,6 +13,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import java.time.LocalDate
+import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 class WordRepositoryImpl(
@@ -22,7 +24,7 @@ class WordRepositoryImpl(
 
     override suspend fun getWordData(): Result<Word> {
         return try {
-            val currentDate = LocalDate.now().format(
+            val currentDate = LocalDate.now(ZoneOffset.UTC).format(
                  DateTimeFormatter.ofPattern("yyyy-MM-dd")
             )
             val response = apiService.fetchWordData(currentDate)

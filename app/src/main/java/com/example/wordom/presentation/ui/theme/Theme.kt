@@ -15,6 +15,8 @@ private val DarkColorScheme = darkColorScheme(
     secondary = PurpleGrey80,
     tertiary = Pink80,
     background = BaseDark,
+    onBackground = OnBaseDark,
+    surface = SurfaceDark
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -22,6 +24,8 @@ private val LightColorScheme = lightColorScheme(
     secondary = PurpleGrey40,
     tertiary = Pink40,
     background = BaseLight,
+    onBackground = OnBaseLight,
+    surface = SurfaceLight
 )
 
 @Composable
